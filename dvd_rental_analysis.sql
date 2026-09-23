@@ -49,3 +49,22 @@ INNER JOIN address AS a
     ON c.address_id = a.address_id
 WHERE a.district = 'California'
 ORDER BY c.last_name, c.first_name;
+
+
+-- Question 5:
+-- Who are the five highest-spending customers?
+
+SELECT
+    c.customer_id,
+    c.first_name,
+    c.last_name,
+    ROUND(SUM(p.amount), 2) AS total_spent
+FROM customer AS c
+INNER JOIN payment AS p
+    ON c.customer_id = p.customer_id
+GROUP BY
+    c.customer_id,
+    c.first_name,
+    c.last_name
+ORDER BY total_spent DESC
+LIMIT 5;
