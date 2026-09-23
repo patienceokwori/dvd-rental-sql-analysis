@@ -23,3 +23,14 @@ SELECT
 FROM film
 WHERE rental_rate > 4.00
 ORDER BY rental_rate DESC, title ASC;
+
+
+-- Question 3:
+-- How many films are available in each rating category?
+
+SELECT
+    rating,
+    COUNT(*) AS total_films
+FROM film
+GROUP BY rating
+ORDER BY total_films DESC;
