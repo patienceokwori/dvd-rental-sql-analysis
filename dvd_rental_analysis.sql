@@ -11,3 +11,15 @@ SELECT
 FROM film
 ORDER BY rental_rate DESC
 LIMIT 10;
+
+
+-- Question 2:
+-- Which films have a rental rate greater than $4.00?
+
+SELECT
+    title AS film_title,
+    rental_rate,
+    rating
+FROM film
+WHERE rental_rate > 4.00
+ORDER BY rental_rate DESC, title ASC;
