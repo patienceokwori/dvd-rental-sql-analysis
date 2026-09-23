@@ -34,3 +34,18 @@ SELECT
 FROM film
 GROUP BY rating
 ORDER BY total_films DESC;
+
+
+-- Question 4:
+-- Which customers live in California?
+
+SELECT
+    c.first_name,
+    c.last_name,
+    a.address,
+    a.district
+FROM customer AS c
+INNER JOIN address AS a
+    ON c.address_id = a.address_id
+WHERE a.district = 'California'
+ORDER BY c.last_name, c.first_name;
